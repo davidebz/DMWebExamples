@@ -17,25 +17,32 @@ You should have received a copy of the GNU Lesser General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>
 */
 
-package bz.davide.dmwebexamples.client;
+package bz.davide.dmwebexamples.shared;
 
-import bz.davide.dmweb.client.DMWeb;
-import bz.davide.dmwebexamples.shared.Example01Unmarshaller;
+import bz.davide.dmweb.shared.component.example.Calculator;
+import bz.davide.dmweb.shared.view.DMClickEvent;
+import bz.davide.dmweb.shared.view.DMClickHandler;
+import bz.davide.dmweb.shared.view.SpanView;
 
-import com.google.gwt.core.client.EntryPoint;
-
-/**
- * Entry point classes define <code>onModuleLoad()</code>.
- */
-public class DMWebExamples implements EntryPoint
+public class ButtonClickListener implements DMClickHandler
 {
-   /**
-    * This is the entry point method.
-    */
-   @Override
-   public void onModuleLoad()
+   Example01 example01;
+
+   public ButtonClickListener(Example01 example01)
    {
-      Example01Unmarshaller example01Unmarshaller = new Example01Unmarshaller();
-      DMWeb.start(example01Unmarshaller);
+      super();
+      this.example01 = example01;
+   }
+
+   protected ButtonClickListener(Void void1)
+   {
+
+   }
+
+   @Override
+   public void onClick(DMClickEvent event)
+   {
+      this.example01.appendChild(new SpanView("Button pressed!"));
+      this.example01.appendChild(new Calculator());
    }
 }

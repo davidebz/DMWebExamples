@@ -17,25 +17,27 @@ You should have received a copy of the GNU Lesser General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>
 */
 
-package bz.davide.dmwebexamples.client;
+package bz.davide.dmwebexamples.shared;
 
-import bz.davide.dmweb.client.DMWeb;
-import bz.davide.dmwebexamples.shared.Example01Unmarshaller;
+import bz.davide.dmweb.shared.view.ButtonView;
+import bz.davide.dmweb.shared.view.DivView;
+import bz.davide.dmweb.shared.view.SpanView;
 
-import com.google.gwt.core.client.EntryPoint;
-
-/**
- * Entry point classes define <code>onModuleLoad()</code>.
- */
-public class DMWebExamples implements EntryPoint
+public class Example01 extends DivView
 {
-   /**
-    * This is the entry point method.
-    */
-   @Override
-   public void onModuleLoad()
+   public Example01()
    {
-      Example01Unmarshaller example01Unmarshaller = new Example01Unmarshaller();
-      DMWeb.start(example01Unmarshaller);
+      this.appendChild(new SpanView("Hello World"));
+      ButtonView buttonView = new ButtonView("PressMe");
+      buttonView.addClickHandler(new ButtonClickListener(this));
+      this.appendChild(buttonView);
+
+      // run the listener when this object/component is attached to the web page
+      this.addAttachHandler(new Example01AttachListener(this));
+   }
+
+   protected Example01(Void void1)
+   {
+      super(void1);
    }
 }

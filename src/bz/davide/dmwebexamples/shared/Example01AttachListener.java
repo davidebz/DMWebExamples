@@ -17,25 +17,33 @@ You should have received a copy of the GNU Lesser General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>
 */
 
-package bz.davide.dmwebexamples.client;
+package bz.davide.dmwebexamples.shared;
 
-import bz.davide.dmweb.client.DMWeb;
-import bz.davide.dmwebexamples.shared.Example01Unmarshaller;
+import bz.davide.dmweb.shared.view.AttachListener;
 
-import com.google.gwt.core.client.EntryPoint;
-
-/**
- * Entry point classes define <code>onModuleLoad()</code>.
- */
-public class DMWebExamples implements EntryPoint
+public class Example01AttachListener implements AttachListener
 {
-   /**
-    * This is the entry point method.
-    */
-   @Override
-   public void onModuleLoad()
+   Example01 example01;
+
+   public Example01AttachListener(Example01 example01)
    {
-      Example01Unmarshaller example01Unmarshaller = new Example01Unmarshaller();
-      DMWeb.start(example01Unmarshaller);
+      this.example01 = example01;
+   }
+
+   protected Example01AttachListener(Void void1)
+   {
+   }
+
+   @Override
+   public void onAttachOrDetach(bz.davide.dmweb.shared.view.AttachEvent event)
+   {
+      if (event.isAttached())
+      {
+         // the component is added to the page
+      }
+      else
+      {
+         // the component is removed from the page
+      }
    }
 }
