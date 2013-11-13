@@ -22,6 +22,8 @@ package bz.davide.dmwebexamples.shared;
 import bz.davide.dmweb.shared.view.ButtonView;
 import bz.davide.dmweb.shared.view.DivView;
 import bz.davide.dmweb.shared.view.SpanView;
+import bz.davide.dmwebexamples.shared.component.Calculator;
+import bz.davide.dmwebexamples.shared.component.PhotoGallery;
 
 public class Example01 extends DivView
 {
@@ -31,6 +33,12 @@ public class Example01 extends DivView
       ButtonView buttonView = new ButtonView("PressMe");
       buttonView.addClickHandler(new ButtonClickListener(this));
       this.appendChild(buttonView);
+      this.appendChild(new Calculator());
+      this.appendChild(new PhotoGallery(new String[] { "Butterfly 1", "Butterfly 2", "Cloud", "Sea" },
+                                        new String[] { "images/DSCF2562.JPG",
+                                                 "images/DSCF2756.JPG",
+                                                 "images/DSCF2848.JPG",
+                                                 "images/DSCF2871.JPG" }));
 
       // run the listener when this object/component is attached to the web page
       this.addAttachHandler(new Example01AttachListener(this));

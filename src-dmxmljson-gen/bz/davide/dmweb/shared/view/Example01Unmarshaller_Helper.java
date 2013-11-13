@@ -157,6 +157,21 @@ public class Example01Unmarshaller_Helper extends bz.davide.dmxmljson.unmarshall
                }
          }
       });
+      this.putInstanceFactory("bz.davide.dmweb.shared.view.ImgView", new bz.davide.dmxmljson.unmarshalling.InstanceFactory() {
+         @Override public Object newInstance() throws Exception {
+            return new bz.davide.dmweb.shared.view.ImgView((Void)null);
+         }
+      });
+
+      this.putClassUnmarshaller("bz.davide.dmweb.shared.view.ImgView", new bz.davide.dmxmljson.unmarshalling.ClassUnmarshaller() {
+         @Override public void unmarshall(bz.davide.dmxmljson.unmarshalling.Structure structure, Object obj, java.util.HashMap<String, Object> identities) throws Exception {
+            internalUnmarschall(structure, "bz.davide.dmweb.shared.view.AbstractHtmlElementView", obj, identities);
+            String id = structure.getId();
+            if (id != null)
+               identities.put(id, obj);
+            bz.davide.dmxmljson.unmarshalling.Value value;
+         }
+      });
       this.putInstanceFactory("bz.davide.dmweb.shared.view.AbstractHtmlElementView", new bz.davide.dmxmljson.unmarshalling.InstanceFactory() {
          @Override public Object newInstance() throws Exception {
             return null;
@@ -275,6 +290,71 @@ public class Example01Unmarshaller_Helper extends bz.davide.dmxmljson.unmarshall
             if (id != null)
                identities.put(id, obj);
             bz.davide.dmxmljson.unmarshalling.Value value;
+         }
+      });
+      this.putInstanceFactory("bz.davide.dmweb.shared.view.InputView", new bz.davide.dmxmljson.unmarshalling.InstanceFactory() {
+         @Override public Object newInstance() throws Exception {
+            return new bz.davide.dmweb.shared.view.InputView((Void)null);
+         }
+      });
+
+      this.putClassUnmarshaller("bz.davide.dmweb.shared.view.InputView", new bz.davide.dmxmljson.unmarshalling.ClassUnmarshaller() {
+         @Override public void unmarshall(bz.davide.dmxmljson.unmarshalling.Structure structure, Object obj, java.util.HashMap<String, Object> identities) throws Exception {
+            internalUnmarschall(structure, "bz.davide.dmweb.shared.view.AbstractHtmlElementView", obj, identities);
+            String id = structure.getId();
+            if (id != null)
+               identities.put(id, obj);
+            bz.davide.dmxmljson.unmarshalling.Value value;
+            // focusHandlers
+            if ((value = structure.property("focusHandlers")) != null)
+               if (value.isNull())
+                  ((InputView)obj).focusHandlers = null;
+               else
+               {
+                  bz.davide.dmxmljson.unmarshalling.Array arr = value.array();        
+                  java.util.ArrayList arrayList = new java.util.ArrayList();       
+                  while ((value = arr.nextItem()) != null) {                       
+                     if (value.isNull())                                           
+                        arrayList.add(null);                                       
+                     else                                                          
+                     {                                                                   
+                        String refid = value.structure().getRefId();    
+                        if (refid != null)                              
+                           arrayList.add(identities.get(refid));                                                
+                        else {
+                           Object o = newInstance(value.structure().getRuntimeClassName("DMFocusHandler"));              
+                           internalUnmarschall(value.structure(), o.getClass().getName(), o, identities); 
+                           arrayList.add(o);                                                
+                        }
+                     }                                                                   
+                  }                                                                   
+                  ((InputView)obj).focusHandlers = arrayList;
+               }
+            // keyUpHandlers
+            if ((value = structure.property("keyUpHandlers")) != null)
+               if (value.isNull())
+                  ((InputView)obj).keyUpHandlers = null;
+               else
+               {
+                  bz.davide.dmxmljson.unmarshalling.Array arr = value.array();        
+                  java.util.ArrayList arrayList = new java.util.ArrayList();       
+                  while ((value = arr.nextItem()) != null) {                       
+                     if (value.isNull())                                           
+                        arrayList.add(null);                                       
+                     else                                                          
+                     {                                                                   
+                        String refid = value.structure().getRefId();    
+                        if (refid != null)                              
+                           arrayList.add(identities.get(refid));                                                
+                        else {
+                           Object o = newInstance(value.structure().getRuntimeClassName("DMKeyUpHandler"));              
+                           internalUnmarschall(value.structure(), o.getClass().getName(), o, identities); 
+                           arrayList.add(o);                                                
+                        }
+                     }                                                                   
+                  }                                                                   
+                  ((InputView)obj).keyUpHandlers = arrayList;
+               }
          }
       });
 

@@ -17,38 +17,36 @@ You should have received a copy of the GNU Lesser General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>
 */
 
-package bz.davide.dmwebexamples.shared;
+package bz.davide.dmwebexamples.shared.component;
 
 import bz.davide.dmweb.shared.view.DMClickEvent;
 import bz.davide.dmweb.shared.view.DMClickHandler;
-import bz.davide.dmweb.shared.view.SpanView;
-import bz.davide.dmwebexamples.shared.component.Calculator;
-import bz.davide.dmwebexamples.shared.component.PhotoGallery;
 
-public class ButtonClickListener implements DMClickHandler
+/**
+ * @author Davide Montesin <d@vide.bz>
+ */
+public class NumberButtonClick implements DMClickHandler
 {
-   Example01 example01;
+   int        num;
 
-   public ButtonClickListener(Example01 example01)
+   Calculator calculator;
+
+   public NumberButtonClick(int num, Calculator calculator)
    {
       super();
-      this.example01 = example01;
+      this.num = num;
+      this.calculator = calculator;
    }
 
-   protected ButtonClickListener(Void void1)
+   protected NumberButtonClick(Void void1)
    {
-
    }
 
    @Override
    public void onClick(DMClickEvent event)
    {
-      this.example01.appendChild(new SpanView("Button pressed!"));
-      this.example01.appendChild(new Calculator());
-      this.example01.appendChild(new PhotoGallery(new String[] { "Butterfly 1", "Butterfly 2", "Cloud", "Sea" },
-                                                  new String[] { "images/DSCF2562.JPG",
-                                                           "images/DSCF2756.JPG",
-                                                           "images/DSCF2848.JPG",
-                                                           "images/DSCF2871.JPG" }));
+      String currVal = this.calculator.inputView.getValue();
+      currVal += String.valueOf(this.num);
+      this.calculator.inputView.setText(currVal);
    }
 }

@@ -1,0 +1,71 @@
+.calculator {
+   width: 100px;
+   padding:10px;
+   background-color:#888888;
+}
+
+
+
+.calculator>.display {
+   text-align: right;
+   width:86px;
+   padding:4px;
+   background-color:#9cbd97;
+   color:black;
+   font-family: monospace;
+   font-size:12px;
+   border:0px;
+}
+
+.calculator>.buttons>div
+{
+   font-size:0px;
+}
+.calculator>.buttons>div>button {
+   width: 28px;
+   height: 28px;
+   background-color:#666666;
+   color:white;
+   border:0px;
+   margin:2px;
+   font-size:12px;
+   font-family: monospace;
+}
+
+
+/* ======================================== */
+
+.photo-gallery
+{
+   width:350px;
+   height:261px;
+   overflow:hidden;
+   position:relative;
+}
+
+.photo-gallery > .image-box
+{
+   opacity:0;
+   
+   -moz-transition: opacity 0.7s;
+   -webkit-transition: opacity 0.7s;
+   -o-transition: opacity 0.7s;
+   transition: opacity 0.7s;
+   
+}
+
+.photo-gallery > .image-box > span
+{
+   position:absolute;
+   z-index:1;
+   left:10px;
+   top:10px;
+   color:white;
+}
+
+.photo-gallery > .image-box > img
+{
+   z-index:0;
+   position:absolute;
+   width:100%;
+}

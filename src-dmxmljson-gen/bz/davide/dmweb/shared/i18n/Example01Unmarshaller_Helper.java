@@ -7,7 +7,7 @@
 package bz.davide.dmweb.shared.i18n;
 
 
-public class Example01Unmarshaller_Helper extends bz.davide.dmwebexamples.shared.Example01Unmarshaller_Helper
+public class Example01Unmarshaller_Helper extends bz.davide.dmwebexamples.shared.component.Example01Unmarshaller_Helper
 {
    protected Example01Unmarshaller_Helper()
    {
