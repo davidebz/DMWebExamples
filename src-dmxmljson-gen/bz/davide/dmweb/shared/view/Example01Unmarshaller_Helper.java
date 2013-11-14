@@ -172,6 +172,50 @@ public class Example01Unmarshaller_Helper extends bz.davide.dmxmljson.unmarshall
             bz.davide.dmxmljson.unmarshalling.Value value;
          }
       });
+      this.putInstanceFactory("bz.davide.dmweb.shared.view.LeafletMapView", new bz.davide.dmxmljson.unmarshalling.InstanceFactory() {
+         @Override public Object newInstance() throws Exception {
+            return new bz.davide.dmweb.shared.view.LeafletMapView((Void)null);
+         }
+      });
+
+      this.putClassUnmarshaller("bz.davide.dmweb.shared.view.LeafletMapView", new bz.davide.dmxmljson.unmarshalling.ClassUnmarshaller() {
+         @Override public void unmarshall(bz.davide.dmxmljson.unmarshalling.Structure structure, Object obj, java.util.HashMap<String, Object> identities) throws Exception {
+            internalUnmarschall(structure, "bz.davide.dmweb.shared.view.DivView", obj, identities);
+            String id = structure.getId();
+            if (id != null)
+               identities.put(id, obj);
+            bz.davide.dmxmljson.unmarshalling.Value value;
+         }
+      });
+      this.putInstanceFactory("bz.davide.dmweb.shared.view.LeafletMapAttachListener", new bz.davide.dmxmljson.unmarshalling.InstanceFactory() {
+         @Override public Object newInstance() throws Exception {
+            return new bz.davide.dmweb.shared.view.LeafletMapAttachListener((Void)null);
+         }
+      });
+
+      this.putClassUnmarshaller("bz.davide.dmweb.shared.view.LeafletMapAttachListener", new bz.davide.dmxmljson.unmarshalling.ClassUnmarshaller() {
+         @Override public void unmarshall(bz.davide.dmxmljson.unmarshalling.Structure structure, Object obj, java.util.HashMap<String, Object> identities) throws Exception {
+            String id = structure.getId();
+            if (id != null)
+               identities.put(id, obj);
+            bz.davide.dmxmljson.unmarshalling.Value value;
+            // mapWidget
+            if ((value = structure.property("mapWidget")) != null)
+               if (value.isNull())
+                  ((LeafletMapAttachListener)obj).mapWidget = null;
+               else
+               {
+                  String refid = value.structure().getRefId();    
+                  if (refid != null)                              
+                     ((LeafletMapAttachListener)obj).mapWidget = (bz.davide.dmweb.shared.view.LeafletMapView)identities.get(refid);
+                  else {
+                     Object o = newInstance(value.structure().getRuntimeClassName("LeafletMapView"));              
+                     internalUnmarschall(value.structure(), o.getClass().getName(), o, identities); 
+                     ((LeafletMapAttachListener)obj).mapWidget = (bz.davide.dmweb.shared.view.LeafletMapView)o;
+                  }
+               }
+         }
+      });
       this.putInstanceFactory("bz.davide.dmweb.shared.view.AbstractHtmlElementView", new bz.davide.dmxmljson.unmarshalling.InstanceFactory() {
          @Override public Object newInstance() throws Exception {
             return null;

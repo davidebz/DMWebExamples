@@ -69,3 +69,11 @@
    position:absolute;
    width:100%;
 }
+
+/* ======================================== */
+
+.leaflet-map-widget
+{
+   width:400px;
+   height:400px;
+}

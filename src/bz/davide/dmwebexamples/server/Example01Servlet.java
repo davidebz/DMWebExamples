@@ -53,6 +53,14 @@ public class Example01Servlet extends HttpServlet
          printWriter.println("<title>Example01</title>");
          printWriter.println("<link type=\"text/css\" rel=\"stylesheet\" href=\"DMWebExamples.css\">");
          printWriter.println("<script type=\"text/javascript\" src=\"dmwebexamples/dmwebexamples.nocache.js\"></script>");
+
+         printWriter.println("<link rel=\"stylesheet\" href=\"../js/leaflet-0.6.4/leaflet.css\" />");
+         printWriter.println("<!--[if lte IE 8]>");
+         printWriter.println("    <link rel=\"stylesheet\" href=\"../js/leaflet-0.6.4/leaflet.ie.css\" />");
+         printWriter.println("<![endif]-->");
+         printWriter.println("<link rel=\"stylesheet\" href=\"../js/leaflet-0.6.4/leaflet.label.css\" />");
+         printWriter.println("<script src=\"../js/leaflet-0.6.4/leaflet.js\"></script>");
+         printWriter.println("<script src=\"../js/leaflet-0.6.4/leaflet.label.js\"></script>");
          printWriter.println("<body>");
 
          Example01 example01 = new Example01();
