@@ -216,6 +216,21 @@ public class Example01Unmarshaller_Helper extends bz.davide.dmxmljson.unmarshall
                }
          }
       });
+      this.putInstanceFactory("bz.davide.dmweb.shared.view.TextAreaView", new bz.davide.dmxmljson.unmarshalling.InstanceFactory() {
+         @Override public Object newInstance() throws Exception {
+            return new bz.davide.dmweb.shared.view.TextAreaView((Void)null);
+         }
+      });
+
+      this.putClassUnmarshaller("bz.davide.dmweb.shared.view.TextAreaView", new bz.davide.dmxmljson.unmarshalling.ClassUnmarshaller() {
+         @Override public void unmarshall(bz.davide.dmxmljson.unmarshalling.Structure structure, Object obj, java.util.HashMap<String, Object> identities) throws Exception {
+            internalUnmarschall(structure, "bz.davide.dmweb.shared.view.AbstractHtmlElementView", obj, identities);
+            String id = structure.getId();
+            if (id != null)
+               identities.put(id, obj);
+            bz.davide.dmxmljson.unmarshalling.Value value;
+         }
+      });
       this.putInstanceFactory("bz.davide.dmweb.shared.view.AbstractHtmlElementView", new bz.davide.dmxmljson.unmarshalling.InstanceFactory() {
          @Override public Object newInstance() throws Exception {
             return null;

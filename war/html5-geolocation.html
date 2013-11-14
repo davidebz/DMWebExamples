@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HTML5 geo location</title>
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+<!--[if lte IE 8]>
+     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
+ <![endif]-->
+<script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
+<style type="text/css">
+#map {
+   height: 400px;
+}
+</style>
+</head>
+<body>
+   <button onclick="findme()">Show my gps position</button>
+   <div id="map"></div>
+   <script type="text/javascript">
+				var map = L.map('map').setView([ 51.505, -0.09 ], 13);
+				var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+				var osmAttrib = 'Map data © OpenStreetMap contributors';
+				var osm = new L.TileLayer(osmUrl, {
+					minZoom : 5,
+					maxZoom : 18,
+					attribution : osmAttrib
+				});
+				map.addLayer(osm)
+
+				function myposition(position) {
+					map.setView([ position.coords.latitude,
+							position.coords.longitude ], 16);
+				}
+
+				function gpserror() {
+					alert('Error reading gps!')
+				}
+
+				function findme() {
+					navigator.geolocation.getCurrentPosition(myposition,
+							gpserror, {
+								enableHighAccuracy : true,
+								timeout : 5000
+							});
+				}
+			</script>
+</body>
+</html>

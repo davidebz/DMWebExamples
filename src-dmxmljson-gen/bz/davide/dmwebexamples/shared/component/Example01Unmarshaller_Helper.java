@@ -163,6 +163,102 @@ public class Example01Unmarshaller_Helper extends bz.davide.dmwebexamples.shared
                }
          }
       });
+      this.putInstanceFactory("bz.davide.dmwebexamples.shared.component.Notepad", new bz.davide.dmxmljson.unmarshalling.InstanceFactory() {
+         @Override public Object newInstance() throws Exception {
+            return new bz.davide.dmwebexamples.shared.component.Notepad((Void)null);
+         }
+      });
+
+      this.putClassUnmarshaller("bz.davide.dmwebexamples.shared.component.Notepad", new bz.davide.dmxmljson.unmarshalling.ClassUnmarshaller() {
+         @Override public void unmarshall(bz.davide.dmxmljson.unmarshalling.Structure structure, Object obj, java.util.HashMap<String, Object> identities) throws Exception {
+            internalUnmarschall(structure, "bz.davide.dmweb.shared.view.DivView", obj, identities);
+            String id = structure.getId();
+            if (id != null)
+               identities.put(id, obj);
+            bz.davide.dmxmljson.unmarshalling.Value value;
+            // localStorageKeyName
+            if ((value = structure.property("localStorageKeyName")) != null)
+               if (value.isNull())
+                  ((Notepad)obj).localStorageKeyName = null;
+               else
+               {
+                  ((Notepad)obj).localStorageKeyName = value.string();
+               }
+            // textArea
+            if ((value = structure.property("textArea")) != null)
+               if (value.isNull())
+                  ((Notepad)obj).textArea = null;
+               else
+               {
+                  String refid = value.structure().getRefId();    
+                  if (refid != null)                              
+                     ((Notepad)obj).textArea = (bz.davide.dmweb.shared.view.TextAreaView)identities.get(refid);
+                  else {
+                     Object o = newInstance(value.structure().getRuntimeClassName("TextAreaView"));              
+                     internalUnmarschall(value.structure(), o.getClass().getName(), o, identities); 
+                     ((Notepad)obj).textArea = (bz.davide.dmweb.shared.view.TextAreaView)o;
+                  }
+               }
+         }
+      });
+      this.putInstanceFactory("bz.davide.dmwebexamples.shared.component.NotepadSave", new bz.davide.dmxmljson.unmarshalling.InstanceFactory() {
+         @Override public Object newInstance() throws Exception {
+            return new bz.davide.dmwebexamples.shared.component.NotepadSave((Void)null);
+         }
+      });
+
+      this.putClassUnmarshaller("bz.davide.dmwebexamples.shared.component.NotepadSave", new bz.davide.dmxmljson.unmarshalling.ClassUnmarshaller() {
+         @Override public void unmarshall(bz.davide.dmxmljson.unmarshalling.Structure structure, Object obj, java.util.HashMap<String, Object> identities) throws Exception {
+            String id = structure.getId();
+            if (id != null)
+               identities.put(id, obj);
+            bz.davide.dmxmljson.unmarshalling.Value value;
+            // notepad
+            if ((value = structure.property("notepad")) != null)
+               if (value.isNull())
+                  ((NotepadSave)obj).notepad = null;
+               else
+               {
+                  String refid = value.structure().getRefId();    
+                  if (refid != null)                              
+                     ((NotepadSave)obj).notepad = (bz.davide.dmwebexamples.shared.component.Notepad)identities.get(refid);
+                  else {
+                     Object o = newInstance(value.structure().getRuntimeClassName("Notepad"));              
+                     internalUnmarschall(value.structure(), o.getClass().getName(), o, identities); 
+                     ((NotepadSave)obj).notepad = (bz.davide.dmwebexamples.shared.component.Notepad)o;
+                  }
+               }
+         }
+      });
+      this.putInstanceFactory("bz.davide.dmwebexamples.shared.component.NotepadAttach", new bz.davide.dmxmljson.unmarshalling.InstanceFactory() {
+         @Override public Object newInstance() throws Exception {
+            return new bz.davide.dmwebexamples.shared.component.NotepadAttach((Void)null);
+         }
+      });
+
+      this.putClassUnmarshaller("bz.davide.dmwebexamples.shared.component.NotepadAttach", new bz.davide.dmxmljson.unmarshalling.ClassUnmarshaller() {
+         @Override public void unmarshall(bz.davide.dmxmljson.unmarshalling.Structure structure, Object obj, java.util.HashMap<String, Object> identities) throws Exception {
+            String id = structure.getId();
+            if (id != null)
+               identities.put(id, obj);
+            bz.davide.dmxmljson.unmarshalling.Value value;
+            // notepad
+            if ((value = structure.property("notepad")) != null)
+               if (value.isNull())
+                  ((NotepadAttach)obj).notepad = null;
+               else
+               {
+                  String refid = value.structure().getRefId();    
+                  if (refid != null)                              
+                     ((NotepadAttach)obj).notepad = (bz.davide.dmwebexamples.shared.component.Notepad)identities.get(refid);
+                  else {
+                     Object o = newInstance(value.structure().getRuntimeClassName("Notepad"));              
+                     internalUnmarschall(value.structure(), o.getClass().getName(), o, identities); 
+                     ((NotepadAttach)obj).notepad = (bz.davide.dmwebexamples.shared.component.Notepad)o;
+                  }
+               }
+         }
+      });
 
    }
 }

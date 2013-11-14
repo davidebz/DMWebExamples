@@ -22,6 +22,7 @@ package bz.davide.dmwebexamples.shared;
 import bz.davide.dmweb.client.leaflet.LatLng;
 import bz.davide.dmweb.client.leaflet.Marker;
 import bz.davide.dmweb.shared.view.AttachListener;
+import bz.davide.dmweb.shared.view.ButtonView;
 import bz.davide.dmweb.shared.view.LeafletMapView;
 
 public class Example01AttachListener implements AttachListener
@@ -43,11 +44,15 @@ public class Example01AttachListener implements AttachListener
       if (event.isAttached())
       {
          // the component is added to the page
-         LeafletMapView osmMapWidget = new LeafletMapView();
+         final LeafletMapView osmMapWidget = new LeafletMapView();
          this.example01.appendChild(osmMapWidget);
          osmMapWidget.getLeafletMap().setView(new LatLng(46.48201, 11.32977), 16);
          Marker weAreHere = new Marker(new LatLng(46.48201, 11.32977));
          osmMapWidget.getLeafletMap().addLayer(weAreHere);
+
+         ButtonView showMyPosition = new ButtonView("Show my position");
+         showMyPosition.addClickHandler(new ShowGPSPositionClick(osmMapWidget.getLeafletMap()));
+         this.example01.appendChild(showMyPosition);
       }
       else
       {

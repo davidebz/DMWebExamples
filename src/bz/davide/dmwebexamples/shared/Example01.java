@@ -23,6 +23,7 @@ import bz.davide.dmweb.shared.view.ButtonView;
 import bz.davide.dmweb.shared.view.DivView;
 import bz.davide.dmweb.shared.view.SpanView;
 import bz.davide.dmwebexamples.shared.component.Calculator;
+import bz.davide.dmwebexamples.shared.component.Notepad;
 import bz.davide.dmwebexamples.shared.component.PhotoGallery;
 
 public class Example01 extends DivView
@@ -30,6 +31,10 @@ public class Example01 extends DivView
    public Example01()
    {
       this.appendChild(new SpanView("Hello World"));
+
+      this.appendChild(new Notepad("note1"));
+      //this.appendChild(new Notepad("note2"));
+
       ButtonView buttonView = new ButtonView("PressMe");
       buttonView.addClickHandler(new ButtonClickListener(this));
       this.appendChild(buttonView);

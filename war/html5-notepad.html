@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HTML5 localStorage</title>
+</head>
+<body>
+   <textarea id="text-id" rows="25" cols="80"></textarea>
+   <button onclick="save();">Save</button>
+   <script>
+				var textarea = document.getElementById('text-id')
+				function save() {
+					var textarea = document.getElementById('text-id')
+					localStorage.data = textarea.value;
+					alert('You save ' + localStorage.data.length + ' chars')
+				}
+				var savedText = localStorage.data;
+				textarea.value= savedText;
+			</script>
+</body>
+</html>

@@ -128,6 +128,78 @@ public class Example01Marshaller_Helper extends bz.davide.dmwebexamples.shared.E
                structure.close();
          }
       });
+      this.putClassMarshaller("bz.davide.dmwebexamples.shared.component.Notepad", new bz.davide.dmxmljson.marshalling.ClassMarshaller() {
+         @Override public void marshall(Object obj, String compileTimeClassName, bz.davide.dmxmljson.marshalling.Structure structure, java.util.IdentityHashMap<Object, bz.davide.dmxmljson.marshalling.Structure> identities, long[] seq, boolean superClass) throws Exception {
+            if (!superClass) {
+               if (isReference(structure, obj, identities, seq))
+                  return;
+               identities.put(obj, structure);
+               structure.open(shortName(compileTimeClassName), shortName(obj.getClass().getName()), null);
+            }
+            internalMarschall(obj, "bz.davide.dmweb.shared.view.DivView", "N/A",structure, identities, seq, true);
+            Object value;
+            // localStorageKeyName
+            value = ((bz.davide.dmwebexamples.shared.component.Notepad)obj).localStorageKeyName;
+            if (value == null)
+               structure.property("localStorageKeyName").nullValue();
+            else
+            {
+                    structure.property("localStorageKeyName").string((String)value);                          
+            }
+            // textArea
+            value = ((bz.davide.dmwebexamples.shared.component.Notepad)obj).textArea;
+            if (value == null)
+               structure.property("textArea").nullValue();
+            else
+            {
+                     internalMarschall(value, value.getClass().getName(),"bz.davide.dmweb.shared.view.TextAreaView", structure.property("textArea").structure(), identities, seq, false);
+            }
+            if (!superClass)
+               structure.close();
+         }
+      });
+      this.putClassMarshaller("bz.davide.dmwebexamples.shared.component.NotepadSave", new bz.davide.dmxmljson.marshalling.ClassMarshaller() {
+         @Override public void marshall(Object obj, String compileTimeClassName, bz.davide.dmxmljson.marshalling.Structure structure, java.util.IdentityHashMap<Object, bz.davide.dmxmljson.marshalling.Structure> identities, long[] seq, boolean superClass) throws Exception {
+            if (!superClass) {
+               if (isReference(structure, obj, identities, seq))
+                  return;
+               identities.put(obj, structure);
+               structure.open(shortName(compileTimeClassName), shortName(obj.getClass().getName()), null);
+            }
+            Object value;
+            // notepad
+            value = ((bz.davide.dmwebexamples.shared.component.NotepadSave)obj).notepad;
+            if (value == null)
+               structure.property("notepad").nullValue();
+            else
+            {
+                     internalMarschall(value, value.getClass().getName(),"bz.davide.dmwebexamples.shared.component.Notepad", structure.property("notepad").structure(), identities, seq, false);
+            }
+            if (!superClass)
+               structure.close();
+         }
+      });
+      this.putClassMarshaller("bz.davide.dmwebexamples.shared.component.NotepadAttach", new bz.davide.dmxmljson.marshalling.ClassMarshaller() {
+         @Override public void marshall(Object obj, String compileTimeClassName, bz.davide.dmxmljson.marshalling.Structure structure, java.util.IdentityHashMap<Object, bz.davide.dmxmljson.marshalling.Structure> identities, long[] seq, boolean superClass) throws Exception {
+            if (!superClass) {
+               if (isReference(structure, obj, identities, seq))
+                  return;
+               identities.put(obj, structure);
+               structure.open(shortName(compileTimeClassName), shortName(obj.getClass().getName()), null);
+            }
+            Object value;
+            // notepad
+            value = ((bz.davide.dmwebexamples.shared.component.NotepadAttach)obj).notepad;
+            if (value == null)
+               structure.property("notepad").nullValue();
+            else
+            {
+                     internalMarschall(value, value.getClass().getName(),"bz.davide.dmwebexamples.shared.component.Notepad", structure.property("notepad").structure(), identities, seq, false);
+            }
+            if (!superClass)
+               structure.close();
+         }
+      });
 
    }
 }
