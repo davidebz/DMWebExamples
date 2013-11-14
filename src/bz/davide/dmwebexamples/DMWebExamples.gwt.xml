@@ -20,7 +20,8 @@
   <!-- Other module inherits                                      -->
   <inherits name="bz.davide.dmxmljson.DMXmlJson"/>
   <inherits name="bz.davide.dmweb.DMWeb"/>
-
+  <inherits name="bz.davide.dmxmljsonexamples.DMXmlJsonExamples"/>
+  
   <!-- Specify the app entry point class.                         -->
   <entry-point class='bz.davide.dmwebexamples.client.DMWebExamples'/>
 

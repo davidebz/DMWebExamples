@@ -7,5 +7,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/DMWeb"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/DMXmlJson"/>
 	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/DMXmlJsonExamples"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>
